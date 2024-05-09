@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Marks</title>
+    <style>
+        body {
+            font-family: 'Montserrat';
+            /* font-family: Arial, sans-serif; */
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+
+        .made{
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .container {
+            width: fit-content;
+            margin: 50px auto;
+            padding: 30px 70px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column; 
+            align-items: left;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .imgg{
+            width: 100px;
+        }
+
+        label {
+            margin-bottom: 10px;
+        }
+
+        input[type="email"],select {
+            width: 250px;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            margin-bottom: 20px;
+        }
+
+
+        .button-50 {
+        appearance: button;
+        background-color: #000;
+        background-image: none;
+        border: 1px solid #000;
+        border-radius: 4px;
+        box-shadow: #fff 4px 4px 0 0,#000 4px 4px 0 1px;
+        box-sizing: border-box;
+        color: #fff;
+        cursor: pointer;
+        display: inline-block;
+        font-family: ITCAvantGardeStd-Bk,Arial,sans-serif;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 20px;
+        margin: 0 5px 10px 0;
+        overflow: visible;
+        padding: 8px 40px;
+        text-align: center;
+        text-transform: none;
+        touch-action: manipulation;
+        user-select: none;
+        -webkit-user-select: none;
+        vertical-align: middle;
+        white-space: nowrap;
+        width: fit-content;
+        }
+
+        .button-50:focus {
+        text-decoration: none;
+        }
+
+        .button-50:hover {
+        text-decoration: none;
+        }
+
+        .button-50:active {
+        box-shadow: rgba(0, 0, 0, .125) 0 3px 5px inset;
+        outline: 0;
+        }
+
+        .button-50:not([disabled]):active {
+        box-shadow: #fff 2px 2px 0 0, #000 2px 2px 0 1px;
+        transform: translate(2px, 2px);
+        }
+
+        .loader {
+            width: 60px;
+            aspect-ratio: 2;
+            --_g: no-repeat radial-gradient(circle closest-side,#000 90%,#0000);
+            background:
+            var(--_g) 0% 50%,
+            var(--_g) 50% 50%,
+            var(--_g) 100% 50%;
+            background-size: calc(100%/3) 50%;
+            animation: l3 1s infinite linear;
+            }
+            @keyframes l3 {
+            20%{background-position:0% 0%, 50% 50%,100% 50%}
+            40%{background-position:0% 100%, 50% 0%,100% 50%}
+            60%{background-position:0% 50%, 50% 100%,100% 0%}
+            80%{background-position:0% 50%, 50% 50%,100% 100%}
+        }
+
+
+        @media (max-width: 768px) {
+        h1{
+            font-size: 22px;
+        }
+        }
+
+
+        #userDetails {
+            margin-bottom: 20px;
+        }
+
+        #userMarks {
+            font-size: 16px;
+        }
+
+        #error {
+            color: red;
+            margin-top: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img class="imgg" src="https://academically.com/front/assets/img/logo.svg" alt="Logo">
+        <h1 class="head">Fetch User <span style="color:#103AC5">Scholarship</span> Data</h1>
+        <form id="emailForm">
+            <label for="email">Enter student email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="subject">Select subject:</label>
+            <select id="subject">
+                <option value="kaps">KAPS</option>
+                <option value="medicos">Medicos</option>
+                <option value="adc">ADC</option>
+                <option value="nclex">NCLEX</option>
+                <option value="usmle">USMLE</option>
+                <option value="apc">APC</option>
+            </select>
+
+            <button class="button-50" type="submit">Fetch Marks</button>
+        </form>
+        <div class="loader" id="loader" style="display: none;"></div>
+
+        <div id="userDetails"></div>
+        <div id="userMarks"></div>
+        <div id="error"></div>
+    </div>
+    <div class="made">
+        Made with love from Product Team ❤️
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
